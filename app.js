@@ -4,12 +4,19 @@ const App = {
             title: 'Список заметок',
             placeholderString: 'Введите название заметки',
             inputValue: '',
-            notes: ['Заметка 1']
+            notes: []
         }
     },
     methods: {
         inputChangeHandler(event) {
             this.inputValue = event.target.value
+        },
+        addNewNote() {
+            this.notes.push(this.inputValue)
+            this.inputValue = ''
+        },
+        removeNote() {
+            this.notes.del
         }
     }
 }

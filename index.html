@@ -11,12 +11,13 @@
         <div class="card">
             <h1>{{ title }}</h1>
             <div class="form-control">
-                <input type="text" v-bind:placeholder="placeholderString" v-bind:value="inputValue" v-on:input="inputChangeHandler">
+                <input type="text" v-bind:placeholder="placeholderString" v-bind:value="inputValue" v-on:input="inputChangeHandler" v-on:keypress.enter="addNewNote">
             </div>
-            <button class="btn">Добавить</button>
+            <button class="btn" v-on:click="addNewNote">Добавить</button>
             <hr>
             <ul class="list">
-                <li class="list-item">{{ notes[0] }}</li>
+                <li class="list-item" v-for="(myNote, i) in notes">{{ myNote }}</li>
+                <button class="btn danger" v-on:click="removeNote">Удалить</button>
             </ul>
         </div>
     </div>
